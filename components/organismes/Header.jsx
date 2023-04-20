@@ -1,7 +1,6 @@
 import React from "react";
 import Logo from "@atoms/Logo";
-import Container from "../templates/container";
-import { classNames } from "@src/components/utils/class_names";
+import Container from "@templates/Container";
 
 export default function Header() {
   return (

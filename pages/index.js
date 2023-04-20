@@ -1,4 +1,5 @@
-import Header from "@organisms/Header";
+import React from "react";
+import Header from "@organismes/Header";
 
 export default function Home() {
   return (

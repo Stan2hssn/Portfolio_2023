@@ -1,4 +1,4 @@
-import Container from "@templates/container";
+import Container from "@templates/Container";
 import React from "react";
 
 export default function Hero() {
