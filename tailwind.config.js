@@ -5,12 +5,11 @@ module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
-    "./src/app/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     fontFamily: {
-      sans: ["var(--font-manrope)", ...fontFamily.sans],
-      title: ["var(--font-zighead)", ...fontFamily.sans],
+      sans: ["var(--font-sans)", ...fontFamily.sans],
+      // title: ["var(--font-title)", ...fontFamily.sans],
     },
 
     extend: {

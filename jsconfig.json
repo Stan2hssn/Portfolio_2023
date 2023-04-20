@@ -2,14 +2,15 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@logo/*": ["public/images/logo/*"],
-      "@projects/*": ["public/images/projects/*"],
-      "@textures/*": ["public/images/textures/*"],
-      "@icons/*": ["public/images/icons/*"],
+      "@logo/*": ["src/images/logo/*"],
+      "@projects/*": ["src/images/projects/*"],
+      "@textures/*": ["src/images/textures/*"],
+      "@icons/*": ["src/images/icons/*"],
       "@templates/*": ["components/templates/*"],
       "@molecules/*": ["components/molecules/*"],
       "@organismes/*": ["components/organismes/*"],
-      "@atoms/*": ["components/atoms/*"]
+      "@atoms/*": ["components/atoms/*"],
+      "@utils/*": ["src/utils/*"]
     }
   }
 }
