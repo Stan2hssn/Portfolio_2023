@@ -1,5 +1,5 @@
 import React from "react";
-import { classNames } from "src/utils/class_names";
+import { classNames } from "@utils/class_names";
 
 function Container({ children, className, size = "lg" }) {
   switch (size) {
