@@ -3,13 +3,13 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     fontFamily: {
       sans: ["var(--font-sans)", ...fontFamily.sans],
-      // title: ["var(--font-title)", ...fontFamily.sans],
+      title: ["var(--font-title)", ...fontFamily.sans],
     },
 
     extend: {
@@ -52,13 +52,20 @@ module.exports = {
             lineHeight: "1.25rem",
             letterSpacing: "0.03em",
             fontWeight: "300",
-            textTransform: "uppercase", //Ici text uppercase
           },
         ],
-        cta: [
+        nav: [
           "1rem",
           {
             lineHeight: "1.3rem",
+            letterSpacing: "0.03em",
+            fontWeight: "400",
+          },
+        ],
+        separator: [
+          "1.25rem",
+          {
+            lineHeight: "1.7rem",
             letterSpacing: "0.03em",
             fontWeight: "300",
           },
@@ -71,14 +78,40 @@ module.exports = {
             fontWeight: "300",
           },
         ],
-        cta: [
-          "1rem",
+        description_sm: [
+          "0.8rem",
           {
-            lineHeight: "1.3rem",
+            lineHeight: "1.1rem",
+            letterSpacing: "0.03em",
+            fontWeight: "700",
+          },
+        ],
+        description_lg: [
+          "1.25rem",
+          {
+            lineHeight: "1.6rem",
+            letterSpacing: "0.03em",
+            fontWeight: "700",
+          },
+        ],
+        detail: [
+          "0.6rem",
+          {
+            lineHeight: "1rem",
             letterSpacing: "0.03em",
             fontWeight: "300",
           },
         ],
+      },
+      colors: {
+        content: {
+          grey_100: "#F2F2F2",
+          grey_800: "#1A1A1A",
+          grey_900: "#1F1F1F",
+        },
+        background: {
+          light: "F2F2F2",
+        },
       },
     },
   },

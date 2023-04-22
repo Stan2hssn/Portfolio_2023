@@ -15,7 +15,11 @@ const zighead = localFont({
 export default function App({ Component, pageProps }) {
   return (
     <main
-      className={classNames(manrope.variable, manrope.variable, "font-sans")}
+      className={classNames(
+        manrope.variable,
+        manrope.variable,
+        "font-sans bg-gradient-to-r from-content-grey_800 via-content-grey_900 to-content-grey_900"
+      )}
     >
       <Component {...pageProps} />
     </main>
