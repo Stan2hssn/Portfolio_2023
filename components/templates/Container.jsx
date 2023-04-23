@@ -1,14 +1,13 @@
 import React, { forwardRef } from "react";
 import { classNames } from "@utils/class_names";
 
-const Container = forwardRef((props, ref) => {
+export default function Container(props) {
   const { children, className, size = "lg" } = props;
 
   switch (size) {
     case "sm":
       return (
         <div
-          ref={ref}
           className={classNames(
             "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
             className
@@ -20,7 +19,6 @@ const Container = forwardRef((props, ref) => {
     case "md":
       return (
         <div
-          ref={ref}
           className={classNames("container max-w-5xl mx-auto px-8", className)}
         >
           {children}
@@ -29,7 +27,6 @@ const Container = forwardRef((props, ref) => {
     case "lg":
       return (
         <div
-          ref={ref}
           className={classNames("container max-w-7xl mx-auto px-8", className)}
         >
           {children}
@@ -38,7 +35,6 @@ const Container = forwardRef((props, ref) => {
     case "xl":
       return (
         <div
-          ref={ref}
           className={classNames(
             "container mx-auto px-4 sm:px-6 lg:px-8",
             className
@@ -48,6 +44,4 @@ const Container = forwardRef((props, ref) => {
         </div>
       );
   }
-});
-
-export default Container;
+}

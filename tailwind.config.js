@@ -55,11 +55,11 @@ module.exports = {
           },
         ],
         nav: [
-          "1rem",
+          ".9rem",
           {
-            lineHeight: "1.3rem",
+            lineHeight: ".9rem",
             letterSpacing: "0.03em",
-            fontWeight: "400",
+            fontWeight: "600",
           },
         ],
         separator: [

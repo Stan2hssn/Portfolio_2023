@@ -1,4 +1,4 @@
-import ".././styles/globals.css";
+import "../styles/globals.css";
 import localFont from "next/font/local";
 import { classNames } from "../utils/class_names";
 
@@ -15,11 +15,7 @@ const zighead = localFont({
 export default function App({ Component, pageProps }) {
   return (
     <main
-      className={classNames(
-        manrope.variable,
-        manrope.variable,
-        "font-sans bg-gradient-to-r from-content-grey_800 via-content-grey_900 to-content-grey_900"
-      )}
+      className={classNames(manrope.variable, manrope.variable, "font-san")}
     >
       <Component {...pageProps} />
     </main>
