@@ -2,5 +2,21 @@ import Container from "@templates/Container";
 import React from "react";
 
 export default function Hero() {
-  return <Container className="flex col-auto">hello</Container>;
+  return (
+    <Container
+      id="Welcome"
+      size="lg"
+      intern={"flex flex-col col-auto h-screen py-52"}
+    >
+      <section className="flex flex-col w-full items-center justify-center gap-y-16">
+        <h1 className="flex text-h1 font-title text-center">
+          Let’s create cool things together
+        </h1>
+        <p className="flex text-description_lg font-sans uppercase text-center">
+          FRENCH front-end DESIGNER <br /> ÉTUDIANT GOBELINS <br /> UI / UX / 3D
+          / Sound
+        </p>
+      </section>
+    </Container>
+  );
 }

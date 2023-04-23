@@ -3,19 +3,19 @@ import localFont from "next/font/local";
 import { classNames } from "../utils/class_names";
 
 const manrope = localFont({
-  src: "../fonts/Manrope.ttf",
+  src: "../public/fonts/Manrope.ttf",
   variable: "--font-sans",
 });
 
 const zighead = localFont({
-  src: "../fonts/Zighead.otf",
+  src: "../public/fonts/Zighead.otf",
 
   variable: "--font-title",
 });
 export default function App({ Component, pageProps }) {
   return (
     <main
-      className={classNames(manrope.variable, manrope.variable, "font-san")}
+      className={classNames(manrope.variable, zighead.variable, "font-sans")}
     >
       <Component {...pageProps} />
     </main>

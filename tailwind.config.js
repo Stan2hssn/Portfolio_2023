@@ -18,7 +18,7 @@ module.exports = {
           "10.25rem",
           {
             lineHeight: "10.7rem",
-            letterSpacing: "0.01em",
+            letterSpacing: "0.02em",
             fontWeight: "400",
           },
         ],
@@ -115,5 +115,4 @@ module.exports = {
       },
     },
   },
-  plugins: [],
 };

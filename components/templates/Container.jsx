@@ -2,7 +2,7 @@ import React, { forwardRef } from "react";
 import { classNames } from "@utils/class_names";
 
 export default function Container(props) {
-  const { children, className, size = "lg" } = props;
+  const { children, className, intern, expend, size = "lg" } = props;
 
   switch (size) {
     case "sm":
@@ -27,20 +27,21 @@ export default function Container(props) {
     case "lg":
       return (
         <div
-          className={classNames("container max-w-7xl mx-auto px-8", className)}
+          className={classNames("flex justify-center w-full h-auto", expend)}
         >
-          {children}
+          <div
+            className={classNames("container max-w-7xl mx-auto px-8", intern)}
+          >
+            {children}
+          </div>
         </div>
       );
     case "xl":
       return (
-        <div
-          className={classNames(
-            "container mx-auto px-4 sm:px-6 lg:px-8",
-            className
-          )}
-        >
-          {children}
+        <div className="flex justify-center w-full">
+          <div className={classNames("container mx-auto px-4 sm:px-6 lg:px-8")}>
+            {children}
+          </div>
         </div>
       );
   }
