@@ -26,9 +26,7 @@ export default function Container(props) {
       );
     case "lg":
       return (
-        <div
-          className={classNames("flex justify-center w-full h-auto", expend)}
-        >
+        <div className={classNames("flex w-full h-auto", expend)}>
           <div
             className={classNames("container max-w-7xl mx-auto px-8", intern)}
           >

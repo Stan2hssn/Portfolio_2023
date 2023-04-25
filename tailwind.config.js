@@ -87,9 +87,9 @@ module.exports = {
           },
         ],
         description_lg: [
-          "1.25rem",
+          "1rem",
           {
-            lineHeight: "1.6rem",
+            lineHeight: "1.5rem",
             letterSpacing: "0.03em",
             fontWeight: "700",
           },
@@ -106,11 +106,36 @@ module.exports = {
       colors: {
         content: {
           grey_100: "#F2F2F2",
+          grey_200: "#EEEEEE",
           grey_800: "#1A1A1A",
           grey_900: "#1F1F1F",
         },
         background: {
           light: "F2F2F2",
+        },
+      },
+      animation: {
+        spinSlow1: "spin1 2s linear infinite",
+        spinSlow2: "spin2 2s linear infinite",
+        spinSlow3: "spin3 2s linear infinite",
+        spinSlow4: "spin4 2s linear infinite",
+      },
+      keyframes: {
+        spin1: {
+          "0%": { transform: "rotate(340deg)" },
+          "100%": { transform: "rotate(-20deg)" },
+        },
+        spin2: {
+          "0%": { transform: "rotate(-350deg)" },
+          "100%": { transform: "rotate(10deg)" },
+        },
+        spin3: {
+          "0%": { transform: "rotate(-20deg)" },
+          "100%": { transform: "rotate(340deg)" },
+        },
+        spin4: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
         },
       },
     },
