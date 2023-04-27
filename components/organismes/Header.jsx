@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <Container
       size="lg"
-      expend="fixed mix-blend-difference z-999 w-screen justify-between items-center"
+      expend="fixed mix-blend-difference z-[900] w-screen justify-between items-center"
       intern="flex flex-row justify-between items-center pt-8"
     >
       <Link href="#" scroll={true}>

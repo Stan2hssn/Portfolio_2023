@@ -6,10 +6,10 @@ export default function Hero() {
     <Container
       id="Welcome"
       size="lg"
-      intern="flex flex-col col-auto h-screen py-52"
+      intern="flex flex-col col-auto h-screen py-44"
       expend="justify-center"
     >
-      <section className="flex flex-col w-full items-center justify-center gap-y-16">
+      <section className="flex flex-col w-full items-center justify-center gap-y-16 text-content-grey_100">
         <h1 className="flex text-h1 font-title text-center">
           Let’s create cool things together
         </h1>

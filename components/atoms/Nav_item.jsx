@@ -6,7 +6,7 @@ export default function Nav_items({ ...props }) {
   return (
     <Link
       href={classNames(props.link)}
-      scroll={false}
+      scroll={true}
       className="flex h-[1.3rem] items-center group"
     >
       <span className="h-[.9rem] overflow-hidden">

@@ -112,6 +112,10 @@ module.exports = {
         },
         background: {
           light: "F2F2F2",
+          noise_1: "url('/public/images/textures/noise1.png')",
+          noise_2: "url('/public/images/textures/noise2.png')",
+          noise_3: "url('/public/images/textures/noise3.png')",
+          noise_4: "url('/public/images/textures/noise4.png')",
         },
       },
       animation: {
@@ -119,6 +123,7 @@ module.exports = {
         spinSlow2: "spin2 2s linear infinite",
         spinSlow3: "spin3 2s linear infinite",
         spinSlow4: "spin4 2s linear infinite",
+        noiseAnimation: "noiseAnimation 800ms linear infinite",
       },
       keyframes: {
         spin1: {
@@ -136,6 +141,53 @@ module.exports = {
         spin4: {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
+        },
+        noiseAnimation: {
+          "0%": {
+            "background-origin": "center",
+            "background-size": "cover",
+            "background-image": "url(/public/images/textures/noise1.png')",
+          },
+          "25%": {
+            "background-origin": "center",
+            "background-size": "cover",
+            "background-image": "url(/public/images/textures/noise1.png')",
+          },
+          "26%": {
+            "background-origin": "center",
+            "background-size": "cover",
+            "background-image": "url(/public/images/textures/noise2.png')",
+          },
+          "50%": {
+            "background-origin": "center",
+            "background-size": "cover",
+            "background-image": "url(/public/images/textures/noise2.png')",
+          },
+          "51%": {
+            "background-origin": "center",
+            "background-size": "cover",
+            "background-image": "url(/public/images/textures/noise3.png')",
+          },
+          "75%": {
+            "background-origin": "center",
+            "background-size": "cover",
+            "background-image": "url(/public/images/textures/noise3.png')",
+          },
+          "76%": {
+            "background-origin": "center",
+            "background-size": "cover",
+            "background-image": "url(/public/images/textures/noise4.png')",
+          },
+          "99%": {
+            "background-origin": "center",
+            "background-size": "cover",
+            "background-image": "url(/public/images/textures/noise4.png')",
+          },
+          "100%": {
+            "background-origin": "center",
+            "background-size": "cover",
+            "background-image": "url(/public/images/textures/noise1.png')",
+          },
         },
       },
     },

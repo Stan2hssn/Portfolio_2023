@@ -1,81 +1,80 @@
 import Container from "@templates/Container";
-import { classNames } from "@utils/class_names";
 import gsap from "gsap";
-import React, { useEffect, useRef } from "react";
+import React from "react";
+import { classNames } from "@utils/class_names";
 
-export default function AbsoluteBadges(props) {
-  const container = useRef(null);
-
+export default function AbsoluteBadges() {
   const animationTextIn = "animationTextIn";
   const animationTextOut = "animationTextOut";
   const animationRound = "animationRound";
 
-  useEffect(() => {
-    const textInOut = gsap.timeline({ paused: true });
-    const round = gsap.timeline({ paused: true });
+  const tl = gsap.timeline({ paused: true });
 
-    const badge = container.current;
+  function animation() {
+    tl
+      .to(".animationRound", {
+        scale: 1.5,
+        duration: 0.6,
+        ease: "power1.inOut",
+      })
+      .to(
+        ".animationTextIn",
+        {
+          y: "-1rem",
+          opacity: "0",
+          gap: "1.5rem",
+          duration: 0.3,
+          ease: "power1.inOut",
+        },
+        0.1
+      )
+      .to(".animationTextIn", {
+        display: "none",
+        duration: 0,
+      })
+      .to(".animationTextOut", {
+        display: "flex",
+        duration: 0,
+      })
+      .to(".animationTextOut", {
+        gap: "0.5rem",
+        opacity: "1",
+        y: "0rem",
+        duration: 0.4,
+        ease: "power1.inOut",
+      })
+      .to(".secondAnimation", {
+        scale: 0.9,
+        duration: 0.2,
+        ease: "power1.inOut",
+      }),
+      "<";
+  }
 
-    /*   round.to(".animationRound", {
-      keyframes: {
-        "0%": { scale: "1" },
-        "40%": { scale: "1.5" },
-        "50%": { scale: "1.2" },
-      },
-    });
- */
+  function GsapIn() {
+    animation();
+    tl.play();
+    console.log("enter");
+  }
 
-    function GsapIn() {
-      textInOut.play();
-      round.play();
-      console.log("enter");
-    }
-
-    function GsapOut() {
-      textInOut.reverse();
-      round.reverse();
-      console.log("out");
-    }
-
-    textInOut.to(".animationTextIn", {
-      keyframes: {
-        "0%": { y: 0 },
-        "20%": { opacity: "1" },
-        "50%": { y: "-1rem", opacity: "0", gap: "1.5rem" },
-        "55%": { display: "none" },
-      },
-      duration: "600",
-      ease: "power1.inOut",
-    });
-
-    textInOut.to(".animationTextOut", {
-      keyframes: {
-        "0%": { y: "1rem", display: "none", gap: "1.5rem", opacity: "0" },
-        "5%": { display: "flex" },
-        "50%": { gap: "0.5rem", opacity: "1", y: "0rem" },
-      },
-    });
-
-    badge.addEventListener("mouseenter", () => {
-      GsapIn();
-    });
-
-    badge.addEventListener("mouseleave", () => {
-      GsapOut();
-    });
-  }, []);
+  function GsapOut() {
+    animation();
+    tl.reverse();
+    console.log("out");
+  }
 
   return (
     <Container
       size="lg"
-      expend="fixed flex-row w-full mb-24 bottom-0 left-0 justify-start"
+      expend="fixed flex-row w-full mb-24 bottom-0 left-0 justify-start z-[900]"
       intern="flex justify-start w-full"
     >
       <div
-        className="relative flex flex-col group/main w-40 h-40 rounded-full items-center justify-center z-10 cursor-pointer"
-        ref={container}
+        className="relative flex flex-col w-40 h-40 rounded-full items-center justify-center z-[100] cursor-pointer"
+        onMouseEnter={GsapIn}
+        onMouseLeave={GsapOut}
       >
-        <div className="flex flex-col z-10">
+        <div className="flex flex-col z-[100]">
           <div
             className={classNames(
               "relative flex flex-col gap-2 items-center",
@@ -84,7 +83,7 @@ export default function AbsoluteBadges(props) {
           >
             <p
               className={classNames(
-                "flex font-sans text-description_sm text-center text-content-grey_900 uppercase z-100",
+                "flex font-sans text-description_sm text-center text-content-grey_900 uppercase z-[100]",
                 animationTextIn
               )}
             >
@@ -92,7 +91,7 @@ export default function AbsoluteBadges(props) {
             </p>
             <p
               className={classNames(
-                "flex font-sans text-body text-center text-content-grey_900 uppercase z-100",
+                "flex font-sans text-body text-center text-content-grey_900 uppercase z-[100]",
                 animationTextIn
               )}
             >
@@ -103,13 +102,13 @@ export default function AbsoluteBadges(props) {
         <div className="flex flex-col z-10">
           <div
             className={classNames(
-              "relative flex-col items-center hidden",
+              "relative flex-col items-center hidden gap-6 opacity-0 translate-y-4",
               animationTextOut
             )}
           >
             <p
               className={classNames(
-                "flex font-sans text-description_sm text-center text-content-grey_900 uppercase",
+                "flex font-sans text-description_sm text-center text-content-grey_900 uppercase z-100 translate-y-4",
                 animationTextOut
               )}
             >
@@ -118,7 +117,7 @@ export default function AbsoluteBadges(props) {
             </p>
             <p
               className={classNames(
-                "flex font-sans text-body text-center text-content-grey_900 uppercase",
+                "flex font-sans text-body text-center text-content-grey_900 uppercase z-100 translate-y-4",
                 animationTextOut
               )}
             >
@@ -126,11 +125,10 @@ export default function AbsoluteBadges(props) {
             </p>
           </div>
         </div>
-        <span className="absolute flex self-center w-40 h-40 rounded-full z-0 pointer-events-none">
+        <span className="absolute flex self-center w-40 h-40 rounded-full z-0 pointer-events-none secondAnimation">
           <div
             className={classNames(
-              "absolute flex items-center justify-center w-40 h-40",
-              animationRound
+              "absolute flex items-center justify-center w-40 h-40"
             )}
           >
             <svg
