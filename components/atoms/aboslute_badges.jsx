@@ -1,33 +1,42 @@
 import Container from "@templates/Container";
 import gsap from "gsap";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { classNames } from "@utils/class_names";
 
 export default function AbsoluteBadges() {
   const animationTextIn = "animationTextIn";
   const animationTextOut = "animationTextOut";
   const animationRound = "animationRound";
+  const copyOut = "copyOut";
+  const copyIn = "copyIn";
 
   const tl = gsap.timeline({ paused: true });
+  const tl2 = gsap.timeline({ paused: true });
+  const tl3 = gsap.timeline({ paused: true });
+
+  useEffect(() => {
+    animation();
+  }, []);
 
   function animation() {
-    tl
+    tl2
       .to(".animationRound", {
-        scale: 1.5,
-        duration: 0.6,
-        ease: "power1.inOut",
+        scale: 1.8,
+        duration: 0.4,
+        ease: "power2.inOut",
       })
-      .to(
-        ".animationTextIn",
-        {
-          y: "-1rem",
-          opacity: "0",
-          gap: "1.5rem",
-          duration: 0.3,
-          ease: "power1.inOut",
-        },
-        0.1
-      )
+      .to(".secondAnimation", {
+        scale: 0.9,
+        duration: 0.2,
+        ease: "power2.inOut",
+      });
+    tl.to(".animationTextIn", {
+      y: "-1rem",
+      opacity: "0",
+      gap: "1.5rem",
+      duration: 0.3,
+      ease: "power2.inOut",
+    })
       .to(".animationTextIn", {
         display: "none",
         duration: 0,
@@ -40,39 +49,61 @@ export default function AbsoluteBadges() {
         gap: "0.5rem",
         opacity: "1",
         y: "0rem",
-        duration: 0.4,
-        ease: "power1.inOut",
-      })
-      .to(".secondAnimation", {
-        scale: 0.9,
-        duration: 0.2,
-        ease: "power1.inOut",
-      }),
-      "<";
+        duration: 0.3,
+        ease: "power2.inOut",
+      });
   }
 
   function GsapIn() {
-    animation();
     tl.play();
+    tl2.play();
     console.log("enter");
   }
 
   function GsapOut() {
-    animation();
     tl.reverse();
+    tl2.reverse();
+    tl3.reverse();
     console.log("out");
+  }
+  async function Clicked() {
+    await navigator.clipboard.writeText("stan.husson@edu.gobelins.fr");
+
+    tl3
+      .to(".copyOut", {
+        y: "0.5rem",
+        opacity: "0",
+        duration: 0.3,
+        ease: "power2.inOut",
+      })
+      .to(".copyOut", {
+        display: "none",
+        duration: 0,
+      })
+      .to(".copyIn", {
+        display: "flex",
+        duration: 0,
+      })
+      .to(".copyIn", {
+        y: "0rem",
+        opacity: "1",
+        duration: 0.3,
+        ease: "power2.inOut",
+      });
+    tl3.play();
   }
 
   return (
     <Container
       size="lg"
-      expend="fixed flex-row w-full mb-24 bottom-0 left-0 justify-start z-[900]"
-      intern="flex justify-start w-full"
+      expend="absolute sm:fixed flex-row w-full mb-8 sm:mb-16 bottom-0 left-0 justify-start z-[900]"
+      intern="flex justify-end sm:justify-start w-full"
     >
       <div
         className="relative flex flex-col w-40 h-40 rounded-full items-center justify-center z-[100] cursor-pointer"
         onMouseEnter={GsapIn}
         onMouseLeave={GsapOut}
+        onClick={Clicked}
       >
         <div className="flex flex-col z-[100]">
           <div
@@ -99,7 +130,7 @@ export default function AbsoluteBadges() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col z-10">
+        <div className="flex flex-col z-[100]">
           <div
             className={classNames(
               "relative flex-col items-center hidden gap-6 opacity-0 translate-y-4",
@@ -108,21 +139,37 @@ export default function AbsoluteBadges() {
           >
             <p
               className={classNames(
-                "flex font-sans text-description_sm text-center text-content-grey_900 uppercase z-100 translate-y-4",
+                "flex font-sans text-description_sm text-center text-content-grey_900 uppercase z-100 translate-y-6",
                 animationTextOut
               )}
             >
               stan.husson
               <br /> @edu.gobelins.fr
             </p>
-            <p
+            <div
               className={classNames(
-                "flex font-sans text-body text-center text-content-grey_900 uppercase z-100 translate-y-4",
+                "flex flex-col items-center h-4 font-sans text-body text-center text-content-grey_900 uppercase z-100 translate-y-4 ",
                 animationTextOut
               )}
             >
-              Click to copy
-            </p>
+              <p
+                className={classNames(
+                  "flex font-sans text-body text-center text-content-grey_900 uppercase z-100",
+                  animationTextOut,
+                  copyOut
+                )}
+              >
+                Click to copy
+              </p>
+              <p
+                className={classNames(
+                  "hidden opacity-0 font-sans text-body text-center text-semantic-purple uppercase z-100 translate-y-2 whitespace-nowrap",
+                  copyIn
+                )}
+              >
+                Copied to clipboard
+              </p>
+            </div>
           </div>
         </div>
         <span className="absolute flex self-center w-40 h-40 rounded-full z-0 pointer-events-none secondAnimation">

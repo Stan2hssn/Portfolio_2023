@@ -19,7 +19,7 @@ export default function Container(props) {
     case "md":
       return (
         <div
-          className={classNames("container max-w-5xl mx-auto px-8", className)}
+          className={classNames("container max-w-5xl mx-auto px-8 ", className)}
         >
           {children}
         </div>
@@ -28,7 +28,10 @@ export default function Container(props) {
       return (
         <div className={classNames("flex w-full h-auto", expend)}>
           <div
-            className={classNames("container max-w-7xl mx-auto px-8", intern)}
+            className={classNames(
+              "container max-w-7xl mx-auto px-8 sm:px-16",
+              intern
+            )}
           >
             {children}
           </div>
