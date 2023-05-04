@@ -2,6 +2,7 @@ import Container from "@templates/Container";
 import gsap from "gsap";
 import React, { useEffect, useState } from "react";
 import { classNames } from "@utils/class_names";
+import Heading from "./Heading";
 
 export default function AbsoluteBadges() {
   const animationTextIn = "animationTextIn";
@@ -96,8 +97,8 @@ export default function AbsoluteBadges() {
   return (
     <Container
       size="lg"
-      expend="absolute sm:fixed flex-row w-full mb-8 sm:mb-16 bottom-0 left-0 justify-start z-[900]"
-      intern="flex justify-end sm:justify-start w-full"
+      expend="absolute md:fixed flex-row w-full mb-8 md:mb-16 bottom-0 left-0 justify-start z-[900]"
+      intern="flex justify-start w-full"
     >
       <div
         className="relative flex flex-col w-40 h-40 rounded-full items-center justify-center z-[100] cursor-pointer"
@@ -112,22 +113,29 @@ export default function AbsoluteBadges() {
               animationTextIn
             )}
           >
-            <p
+            <Heading
+              as="p"
+              size="description_lg"
+              color="light"
               className={classNames(
                 "flex font-sans text-description_sm text-center text-content-grey_900 uppercase z-[100]",
                 animationTextIn
               )}
             >
               Open <br /> to work
-            </p>
-            <p
+            </Heading>
+
+            <Heading
+              as="p"
+              size="body"
+              color="light"
               className={classNames(
-                "flex font-sans text-body text-center text-content-grey_900 uppercase z-[100]",
+                "flex font-sans text-description_sm text-center text-content-grey_900 uppercase",
                 animationTextIn
               )}
             >
-              -Aug 2023
-            </p>
+              - Aug 2023
+            </Heading>
           </div>
         </div>
         <div className="flex flex-col z-[100]">
@@ -137,7 +145,10 @@ export default function AbsoluteBadges() {
               animationTextOut
             )}
           >
-            <p
+            <Heading
+              as="p"
+              size="description_lg"
+              color="light"
               className={classNames(
                 "flex font-sans text-description_sm text-center text-content-grey_900 uppercase z-100 translate-y-6",
                 animationTextOut
@@ -145,14 +156,17 @@ export default function AbsoluteBadges() {
             >
               stan.husson
               <br /> @edu.gobelins.fr
-            </p>
+            </Heading>
             <div
               className={classNames(
                 "flex flex-col items-center h-4 font-sans text-body text-center text-content-grey_900 uppercase z-100 translate-y-4 ",
                 animationTextOut
               )}
             >
-              <p
+              <Heading
+                as="p"
+                size="body"
+                color="light"
                 className={classNames(
                   "flex font-sans text-body text-center text-content-grey_900 uppercase z-100",
                   animationTextOut,
@@ -160,15 +174,19 @@ export default function AbsoluteBadges() {
                 )}
               >
                 Click to copy
-              </p>
-              <p
+              </Heading>
+
+              <Heading
+                as="p"
+                size="body"
+                color="light"
                 className={classNames(
                   "hidden opacity-0 font-sans text-body text-center text-semantic-purple uppercase z-100 translate-y-2 whitespace-nowrap",
                   copyIn
                 )}
               >
                 Copied to clipboard
-              </p>
+              </Heading>
             </div>
           </div>
         </div>

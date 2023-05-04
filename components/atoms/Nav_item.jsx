@@ -13,19 +13,21 @@ export default function Nav_items({ ...props }) {
       <span className="h-[.9rem] overflow-hidden">
         <div
           className="
-      flex flex-col col-auto font-sans text-nav uppercase select-none group-hover:-translate-y-[.9rem] transition-transform duration-300 ease-in-out"
+      flex flex-col col-auto font-sans text-nav uppercase select-none group-hover:-translate-y-[0.9rem] transition-transform duration-300 ease-in-out"
         >
           <Heading
-            as="nav"
-            color="white"
+            as="span"
+            size="description_sm"
+            color="light"
             className="flex group-hover:rotate-[20deg] origin-right transition-transform duration-300 ease-in-out"
           >
             {props.name}
           </Heading>
           <Heading
-            as="nav"
-            color="white"
-            classname="flex rotate-[20deg] group-hover:rotate-0 origin-top-left transition-transform duration-300 ease-in-out"
+            as="span"
+            size="description_sm"
+            color="light"
+            className="flex rotate-[20deg] group-hover:rotate-0 origin-top-left transition-transform duration-300 ease-in-out"
           >
             {props.name}
           </Heading>

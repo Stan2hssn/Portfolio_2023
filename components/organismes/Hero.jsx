@@ -5,22 +5,24 @@ import React from "react";
 
 export default function Hero() {
   return (
-    <section className="flex w-full h-auto">
-      <Blob />
+    <section className="relative flex flex-row w-full h-auto">
+      <div className="absolute w-screen min-h-screen h-full -z-10">
+        <Blob />
+      </div>
       <Container
         id="Welcome"
         size="lg"
         expend="justify-center"
-        intern="flex flex-col col-auto  min-h-screen h-auto py-44 z-0"
+        intern="flex flex-col col-auto h-screen md:min-h-screen md:h-auto md:py-44"
       >
-        <section className="flex flex-col w-full items-start sm:items-center gap-y-6 sm:gap-y-16 ">
-          <Heading as="h1" size="h1" className="flex sm:text-center text-left">
+        <section className="flex flex-col w-full h-full justify-center md:h-auto items-start md:items-center gap-y-8 md:gap-y-16 pb-24">
+          <Heading as="h1" size="h1" className="flex md:text-center text-left">
             Let’s create cool things together
           </Heading>
           <Heading
             as="p"
             size="description_lg"
-            className="flex font-sans uppercase text-left sm:text-center"
+            className="flex font-sans uppercase text-left md:text-center"
           >
             FRENCH front-end DESIGNER <br /> GOBELINS STUDENT <br /> UI / UX /
             3D / Sound

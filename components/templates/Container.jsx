@@ -9,7 +9,7 @@ export default function Container(props) {
       return (
         <div
           className={classNames(
-            "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+            "max-w-7xl mx-auto px-4 md:px-6 lg:px-8",
             className
           )}
         >
@@ -29,7 +29,7 @@ export default function Container(props) {
         <div className={classNames("flex w-full h-auto", expend)}>
           <div
             className={classNames(
-              "container max-w-7xl mx-auto px-8 sm:px-16",
+              "container max-w-7xl mx-auto px-8 md:px-16",
               intern
             )}
           >
@@ -40,7 +40,7 @@ export default function Container(props) {
     case "xl":
       return (
         <div className="flex justify-center w-full">
-          <div className={classNames("container mx-auto px-4 sm:px-6 lg:px-8")}>
+          <div className={classNames("container mx-auto px-4 md:px-6 lg:px-8")}>
             {children}
           </div>
         </div>

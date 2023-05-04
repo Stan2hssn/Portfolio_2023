@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { classNames } from "@utils/class_names";
 
 const COLOR_CLASSNAMES = {
-  ligth: "text-content-grey_100",
+  light: "text-content-grey_100",
   dark: "text-content-grey_900",
 };
 
@@ -25,7 +25,7 @@ const SIZE_CLASSNAMES = {
 export default function Heading({
   as,
   size = as,
-  color = "primary",
+  color = "light",
   children,
   className,
   anchor,
@@ -52,7 +52,8 @@ export default function Heading({
 
 Heading.propTypes = {
   anchor: PropTypes.string,
-  as: PropTypes.oneOf(["h1", "h2", "h3", "h4", "h5", "h6", "span"]).isRequired,
+  as: PropTypes.oneOf(["h1", "h2", "h3", "h4", "h5", "h6", "span", "p"])
+    .isRequired,
   size: PropTypes.oneOf(Object.keys(SIZE_CLASSNAMES)),
   color: PropTypes.oneOf(Object.keys(COLOR_CLASSNAMES)),
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
