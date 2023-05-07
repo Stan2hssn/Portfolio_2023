@@ -15,10 +15,6 @@ export default function AbsoluteBadges() {
   const tl2 = gsap.timeline({ paused: true });
   const tl3 = gsap.timeline({ paused: true });
 
-  useEffect(() => {
-    animation();
-  }, []);
-
   function animation() {
     tl2
       .to(".animationRound", {
@@ -59,6 +55,7 @@ export default function AbsoluteBadges() {
     tl.play();
     tl2.play();
     console.log("enter");
+    animation();
   }
 
   function GsapOut() {

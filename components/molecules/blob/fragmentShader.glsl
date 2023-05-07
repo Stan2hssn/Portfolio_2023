@@ -11,5 +11,4 @@ void main() {
     float distortedGrayscale = grayscale * (1.0 - distort);
     vec3 color = vec3(distortedGrayscale);
     gl_FragColor = vec4(color, 1.0);
-
 }

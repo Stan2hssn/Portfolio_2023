@@ -59,6 +59,7 @@ export default function Blob() {
 
   return (
     <Canvas
+      className="pointer-events-none"
       camera={{
         position: [0, 0, 8.0],
       }}
