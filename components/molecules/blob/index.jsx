@@ -2,14 +2,23 @@ import React, { useMemo, useRef, useEffect, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import vertexShader from "./vertexShader.glsl";
 import fragmentShader from "./fragmentShader.glsl";
+import { TextureLoader } from "three";
 
 function Ground({ meshScale, meshRotation, meshPosition, uIntensity }) {
   const mesh = useRef();
+  const loader = new TextureLoader();
+
+  const [noiseTexture, setNoiseTexture] = useState(null);
+
+  useEffect(() => {
+    loader.load("/images/textures/noise_cloud.jpg", setNoiseTexture);
+  }, []);
 
   const uniforms = useMemo(() => {
     return {
       uTime: { value: 0 },
       uIntensity: { value: uIntensity },
+      uNoise: { value: 0 }, // texture units are represented by integers
     };
   }, [uIntensity]);
 
@@ -19,9 +28,13 @@ function Ground({ meshScale, meshRotation, meshPosition, uIntensity }) {
       mesh.current.material.uniforms.uTime.value = 0.1 * clock.getElapsedTime();
     }
   });
+
+  if (!noiseTexture) {
+    return null; // ensure the texture is loaded before rendering the mesh
+  }
+
   return (
     <mesh
-      antiAliasing={true}
       ref={mesh}
       scale={meshScale}
       rotation={meshRotation}
@@ -32,6 +45,7 @@ function Ground({ meshScale, meshRotation, meshPosition, uIntensity }) {
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
         uniforms={uniforms}
+        map={noiseTexture}
       />
     </mesh>
   );
@@ -69,7 +83,7 @@ export default function Blob() {
           meshScale={[2, 8, 2]}
           meshRotation={[1, Math.PI, Math.PI / 2]}
           meshPosition={[0, -7.5, 0]}
-          uIntensity={0.5}
+          uIntensity={100}
         />
       ) : (
         <Ground

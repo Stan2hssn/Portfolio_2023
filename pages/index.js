@@ -15,7 +15,6 @@ export default function Home() {
       <section className="flex flex-col w-full items-center z-10">
         <Hero />
         <ProjectSection />
-        <section className="flex bg-green-500 w-full h-screen"></section>
       </section>
     </>
   );

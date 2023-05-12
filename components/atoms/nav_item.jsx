@@ -1,7 +1,7 @@
 import { classNames } from "@utils/class_names";
 import Link from "next/link";
 import React from "react";
-import Heading from "./Heading";
+import Heading from "./heading";
 
 export default function Nav_items({ ...props }) {
   return (

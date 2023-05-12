@@ -2,7 +2,7 @@ import Container from "@templates/Container";
 import gsap from "gsap";
 import React, { useEffect, useState } from "react";
 import { classNames } from "@utils/class_names";
-import Heading from "./Heading";
+import Heading from "./heading";
 
 export default function AbsoluteBadges() {
   const animationTextIn = "animationTextIn";

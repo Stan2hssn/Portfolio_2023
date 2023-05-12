@@ -12,6 +12,9 @@ export const theme = {
   },
 
   extend: {
+    boxShadow: {
+      100: "0px 0px 250px rgba(203, 203, 203, 0.8)",
+    },
     screens: {
       md: "686px",
       // => @media (min-width: 686px and max-width: 829px) { ... }
@@ -276,6 +279,7 @@ export const theme = {
       },
       background: {
         light: "F2F2F2",
+        shadow_light: "#D9D9D9",
         noise_1: "url('/public/images/textures/noise1.png')",
         noise_2: "url('/public/images/textures/noise2.png')",
         noise_3: "url('/public/images/textures/noise3.png')",
@@ -308,49 +312,49 @@ export const theme = {
       },
       noiseAnimation: {
         "0%": {
-          "background-origin": "center",
+          "background-origin": "border-box",
           "background-size": "cover",
-          "background-image": "url(/public/images/textures/noise1.png')",
+          "background-image": "url('/images/textures/noise1.png')",
         },
         "25%": {
-          "background-origin": "center",
+          "background-origin": "border-box",
           "background-size": "cover",
-          "background-image": "url(/public/images/textures/noise1.png')",
+          "background-image": "url('/images/textures/noise1.png')",
         },
         "26%": {
-          "background-origin": "center",
+          "background-origin": "border-box",
           "background-size": "cover",
-          "background-image": "url(/public/images/textures/noise2.png')",
+          "background-image": "url('/images/textures/noise2.png')",
         },
         "50%": {
-          "background-origin": "center",
+          "background-origin": "border-box",
           "background-size": "cover",
-          "background-image": "url(/public/images/textures/noise2.png')",
+          "background-image": "url('/images/textures/noise2.png')",
         },
         "51%": {
-          "background-origin": "center",
+          "background-origin": "border-box",
           "background-size": "cover",
-          "background-image": "url(/public/images/textures/noise3.png')",
+          "background-image": "url('/images/textures/noise3.png')",
         },
         "75%": {
-          "background-origin": "center",
+          "background-origin": "border-box",
           "background-size": "cover",
-          "background-image": "url(/public/images/textures/noise3.png')",
+          "background-image": "url('/images/textures/noise3.png')",
         },
         "76%": {
-          "background-origin": "center",
+          "background-origin": "border-box",
           "background-size": "cover",
-          "background-image": "url(/public/images/textures/noise4.png')",
+          "background-image": "url('/images/textures/noise4.png')",
         },
         "99%": {
-          "background-origin": "center",
+          "background-origin": "border-box",
           "background-size": "cover",
-          "background-image": "url(/public/images/textures/noise4.png')",
+          "background-image": "url('/images/textures/noise4.png')",
         },
         "100%": {
-          "background-origin": "center",
+          "background-origin": "border-box",
           "background-size": "cover",
-          "background-image": "url(/public/images/textures/noise1.png')",
+          "background-image": "url('/images/textures/noise1.png')",
         },
       },
     },
